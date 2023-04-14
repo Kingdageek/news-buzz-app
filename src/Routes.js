@@ -17,6 +17,7 @@ const ProjectRoutes = () => {
     <React.Suspense fallback={<>Loading...</>}>
       <Router>
         <Routes>
+          <Route path="/home" element={<Home />} />
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
           {/* <Route path="/subscribe" element={<Subscribe />} />

@@ -75,38 +75,6 @@ export const ArrayCompareAndSortMsg = (a, b) => {
   return 0;
 };
 
-export const Numeric = (length) => {
-  var result = "";
-  var characters = "012345678901234567890123456789";
-  var charactersLength = characters.length;
-  for (var i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-  }
-  return result;
-};
-
-export const sharePage = async (url, message) => {
-  let links = URL_PROTOCOL + APP_URL + url;
-
-  const shareData = { title: "Prova Sharing", text: message, url: links };
-  try {
-    try {
-      await navigator.share(shareData);
-    } catch (err) {
-      console.log("Sharing failed", err);
-    }
-  } catch (err) {}
-};
-
-export const validateEmail = (emailAdress) => {
-  let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  if (emailAdress.match(regexEmail)) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
 export const isObject = function (a) {
   return !!a && a.constructor === Object;
 };
@@ -126,9 +94,18 @@ export const printMaxCharacters = (text, characters = 100) => {
   return text;
 };
 
-export const convertToSlug = (text) => {
-  return text
-    .toLowerCase()
-    .replace(/ /g, "-")
-    .replace(/[^\w-]+/g, "");
+export const formatDate = (datestring) => {
+  let d = new Date(datestring);
+  let formattedDate =
+    ("0" + d.getDate()).slice(-2) +
+    "-" +
+    ("0" + (d.getMonth() + 1)).slice(-2) +
+    "-" +
+    d.getFullYear();
+  // +
+  // " " +
+  // ("0" + d.getHours()).slice(-2) +
+  // ":" +
+  // ("0" + d.getMinutes()).slice(-2);
+  return formattedDate;
 };

@@ -17,6 +17,11 @@ const Header = ({
   page = "",
 }) => {
   const navigate = useNavigate();
+
+  const handleLogout = () => {
+    Logout();
+    navigate("/login");
+  };
   return (
     <Navbar bg="dark" expand="lg" variant="dark">
       <Container>
@@ -47,7 +52,9 @@ const Header = ({
                   >
                     Preferences
                   </NavDropdown.Item>
-                  <NavDropdown.Item onClick={Logout}>Sign out</NavDropdown.Item>
+                  <NavDropdown.Item onClick={handleLogout}>
+                    Sign out
+                  </NavDropdown.Item>
                 </NavDropdown>
               </Nav>
             </Navbar.Collapse>

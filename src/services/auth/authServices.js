@@ -26,7 +26,8 @@ export const setUserDetails = (data, token) => {
 };
 
 export const AuthHeader = () => {
-  const AuthString = "Bearer ".concat(getToken());
+  const token = JSON.parse(getToken());
+  const AuthString = "Bearer " + token;
   return { "Content-Type": "application/json", Authorization: AuthString };
 };
 

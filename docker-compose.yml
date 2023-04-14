@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  app: 
+    container_name: news-buzz-app
+    image: news-buzz-app-image
+    build:
+      context: .
+    ports: 
+      - 3000:80
