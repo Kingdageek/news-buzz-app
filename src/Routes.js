@@ -4,6 +4,7 @@ import Home from "./components/pages/Home";
 import NotFound from "./components/pages/NotFound";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
+import Preferences from "./components/pages/Preferences";
 // const UpdatePassword = React.lazy(() => import("pages/UpdatePassword"));
 // const ForgotPassword = React.lazy(() => import("pages/ForgotPassword"));
 // const Register = React.lazy(() => import("pages/Register"));
@@ -20,14 +21,9 @@ const ProjectRoutes = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
-          {/* <Route path="/subscribe" element={<Subscribe />} />
-          <Route path="/sigleblog" element={<SigleBlog />} />
-          <Route path="/allblog" element={<AllBlog />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          {/* <Route path="/forgotpassword" element={<ForgotPassword />} />
-          <Route path="/updatepassword" element={<UpdatePassword />} />
-          <Route path="/dhiwise-dashboard" element={<Home />} /> */}
+          <Route path="/user/preferences" element={<Preferences />} />
         </Routes>
       </Router>
     </React.Suspense>
