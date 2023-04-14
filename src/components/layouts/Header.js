@@ -5,6 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { APP_NAME } from "../../config/appConfig";
+import { Logout } from "../../services/auth";
 
 const Header = ({
   type,
@@ -19,14 +20,17 @@ const Header = ({
   return (
     <Navbar bg="dark" expand="lg" variant="dark">
       <Container>
-        <Navbar.Brand onClick={() => isLogin ? navigate("/home") : navigate("/login")}>
+        <Navbar.Brand
+          onClick={() => (isLogin ? navigate("/home") : navigate("/login"))}
+        >
           {APP_NAME}
         </Navbar.Brand>
         {isLogin ? (
           <>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse
-              id="basic-navbar-nav" className="justify-content-end"
+              id="basic-navbar-nav"
+              className="justify-content-end"
             >
               <Nav className="me-1">
                 <Nav.Link onClick={() => navigate("/home")}>Home</Nav.Link>
@@ -43,6 +47,7 @@ const Header = ({
                   >
                     Preferences
                   </NavDropdown.Item>
+                  <NavDropdown.Item onClick={Logout}>Sign out</NavDropdown.Item>
                 </NavDropdown>
               </Nav>
             </Navbar.Collapse>
@@ -51,7 +56,8 @@ const Header = ({
           <>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse
-              id="basic-navbar-nav" className="justify-content-end"
+              id="basic-navbar-nav"
+              className="justify-content-end"
             >
               <Nav className="me-1">
                 <Nav.Link onClick={() => navigate("/login")}>Login</Nav.Link>

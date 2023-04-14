@@ -92,6 +92,9 @@ export const RegisterService = async (payload, callback) => {
       if (res) {
         let { data } = res;
         if (res.status === 201) {
+          // backend auto logs in user
+          let token = data.data.access_token;
+          setUserDetails(data.data, token);
           response = data;
         } else {
           response = { ...data, message: data.message };
